@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Spline from '@splinetool/react-spline'
-import { Menu, Calendar, Mail, PenSquare, Shield, Clock, ArrowRight, Check, FileText } from 'lucide-react'
+import { Menu, Calendar, PenSquare, Shield, Clock, ArrowRight, Check, FileText, User, Award, GraduationCap, Stethoscope } from 'lucide-react'
 
 const API_BASE = import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000'
 
@@ -34,6 +34,124 @@ function Hero() {
           <div className="mt-6 grid grid-cols-2 gap-6 text-sm text-white/70">
             <div className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-400" /> Evidence-based care</div>
             <div className="flex items-center gap-2"><Check className="h-4 w-4 text-blue-400" /> Patient-first approach</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+function About() {
+  return (
+    <section id="about" className="bg-[#070a0f] text-white py-20">
+      <div className="container mx-auto px-6 md:px-10">
+        <div className="grid lg:grid-cols-3 gap-10 items-start">
+          <div className="lg:col-span-2">
+            <h2 className="text-3xl md:text-4xl font-semibold">About the Doctor</h2>
+            <p className="mt-3 text-white/70 max-w-2xl">
+              Blending clinical excellence with a love for technology and design, the practice focuses on precision diagnostics, compassionate care, and research-driven treatments. This portfolio highlights the journey, values, and impact.
+            </p>
+
+            <div className="mt-8 grid sm:grid-cols-2 gap-6">
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <div className="flex items-center gap-3">
+                  <User className="h-5 w-5 text-blue-400" />
+                  <h3 className="font-semibold">Specialties</h3>
+                </div>
+                <div className="mt-3 flex flex-wrap gap-2 text-sm">
+                  {['Cardiology','Preventive Care','Telemedicine','Clinical Research'].map(tag => (
+                    <span key={tag} className="px-3 py-1 rounded-full bg-blue-600/20 text-blue-200 border border-blue-500/30">{tag}</span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <div className="flex items-center gap-3">
+                  <GraduationCap className="h-5 w-5 text-blue-400" />
+                  <h3 className="font-semibold">Education</h3>
+                </div>
+                <ul className="mt-3 text-white/70 text-sm space-y-2">
+                  <li>MD, Top-Tier Medical University</li>
+                  <li>Residency, Internal Medicine</li>
+                  <li>Fellowship, Cardiology</li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <div className="flex items-center gap-3">
+                  <Award className="h-5 w-5 text-blue-400" />
+                  <h3 className="font-semibold">Recognition</h3>
+                </div>
+                <ul className="mt-3 text-white/70 text-sm space-y-2">
+                  <li>Best Clinical Research Poster — 2023</li>
+                  <li>Top Doctor Award — 2022</li>
+                  <li>Patient Choice Honors — Multiple years</li>
+                </ul>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-5">
+                <div className="flex items-center gap-3">
+                  <Stethoscope className="h-5 w-5 text-blue-400" />
+                  <h3 className="font-semibold">Philosophy</h3>
+                </div>
+                <p className="mt-3 text-white/70 text-sm">
+                  Medicine is both science and story. Every treatment begins with listening, supported by modern tools and continuous learning.
+                </p>
+              </div>
+            </div>
+
+            <div className="mt-10">
+              <h3 className="text-xl font-semibold">Timeline</h3>
+              <div className="mt-4 relative pl-6 border-l border-white/10 space-y-6">
+                {[
+                  { year: '2015', text: 'Graduated medical school with honors' },
+                  { year: '2018', text: 'Completed residency in Internal Medicine' },
+                  { year: '2021', text: 'Fellowship in Cardiology and launched telehealth program' },
+                  { year: '2023', text: 'Published research on AI-assisted diagnostics' }
+                ].map(i => (
+                  <div key={i.year} className="relative">
+                    <span className="absolute -left-[10px] top-1.5 h-2.5 w-2.5 rounded-full bg-blue-500"></span>
+                    <div className="text-sm text-white/60">{i.year}</div>
+                    <div className="text-white/90">{i.text}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="lg:col-span-1">
+            <div className="sticky top-24 space-y-6">
+              <div className="rounded-xl overflow-hidden border border-white/10 bg-gradient-to-b from-blue-600/20 to-indigo-600/20 p-6">
+                <h3 className="text-xl font-semibold">At a glance</h3>
+                <div className="mt-4 grid grid-cols-2 gap-4 text-center">
+                  <div className="bg-black/30 rounded-lg p-4">
+                    <div className="text-3xl font-bold">10+</div>
+                    <div className="text-xs text-white/60">Years Practice</div>
+                  </div>
+                  <div className="bg-black/30 rounded-lg p-4">
+                    <div className="text-3xl font-bold">2k+</div>
+                    <div className="text-xs text-white/60">Patients</div>
+                  </div>
+                  <div className="bg-black/30 rounded-lg p-4">
+                    <div className="text-3xl font-bold">30+</div>
+                    <div className="text-xs text-white/60">Publications</div>
+                  </div>
+                  <div className="bg-black/30 rounded-lg p-4">
+                    <div className="text-3xl font-bold">15</div>
+                    <div className="text-xs text-white/60">Awards</div>
+                  </div>
+                </div>
+                <a href="#book" className="mt-6 inline-flex items-center gap-2 w-full justify-center bg-blue-600 hover:bg-blue-500 rounded-lg px-4 py-3">
+                  Book an Appointment <ArrowRight className="h-4 w-4" />
+                </a>
+              </div>
+
+              <div className="rounded-xl border border-white/10 bg-white/5 p-6">
+                <h4 className="font-semibold">Media & Speaking</h4>
+                <p className="text-sm text-white/70 mt-2">Available for conferences, podcasts, and grand rounds on AI in cardiology and patient-centered care.</p>
+                <a href="#book" className="text-blue-300 text-sm mt-3 inline-block hover:text-blue-200">Contact for engagements →</a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -279,6 +397,7 @@ function Footer() {
       <div className="container mx-auto px-6 md:px-10 flex flex-col md:flex-row items-center justify-between gap-4">
         <p>© {new Date().getFullYear()} Doctor Portfolio. All rights reserved.</p>
         <div className="flex gap-6 text-white/60">
+          <a href="#about" className="hover:text-white">About</a>
           <a href="#book" className="hover:text-white">Appointments</a>
           <a href="#blog" className="hover:text-white">Blog</a>
           <a href="#admin" className="hover:text-white">Admin</a>
@@ -298,6 +417,7 @@ export default function App() {
             <span className="font-semibold">Dr. Portfolio</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 text-white/80">
+            <a href="#about" className="hover:text-white">About</a>
             <a href="#book" className="hover:text-white">Appointments</a>
             <a href="#blog" className="hover:text-white">Blog</a>
             <a href="#admin" className="hover:text-white">Admin</a>
@@ -308,6 +428,7 @@ export default function App() {
 
       <main className="pt-16">
         <Hero />
+        <About />
         <Booking />
         <Blog />
         <Admin />
